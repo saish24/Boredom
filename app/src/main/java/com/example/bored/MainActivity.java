@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         Refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Loading ...", Toast.LENGTH_SHORT).show();
+
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl("https://www.boredapi.com/api/")
                         .addConverterFactory(GsonConverterFactory.create())
