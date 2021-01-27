@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Bored</string>
+    <string name="refresh">Refresh</string>
+    <string name="activity_type">Activity Type</string>
+    <string name="price">Price</string>
+    <string name="accessibility">Accessibility</string>
+</resources>
