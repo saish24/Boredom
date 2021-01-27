@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
                 call.enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
+                        LinearLayout layout1 = (LinearLayout) findViewById(R.id.row1);
+                        layout1.setVisibility(View.VISIBLE);
+                        LinearLayout layout2 = (LinearLayout) findViewById(R.id.row2);
+                        layout2.setVisibility(View.VISIBLE);
+                        LinearLayout layout3 = (LinearLayout) findViewById(R.id.row3);
+                        layout3.setVisibility(View.VISIBLE);
+
                         if(!response.isSuccessful()){
                             action.setText(response.code());
                             return;
@@ -67,7 +75,14 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call call, Throwable t) {
-                        action.setText(t.getMessage());
+                        String str = t.getMessage();
+                        action.setText(str);
+                        LinearLayout layout1 = (LinearLayout) findViewById(R.id.row1);
+                        layout1.setVisibility(View.GONE);
+                        LinearLayout layout2 = (LinearLayout) findViewById(R.id.row2);
+                        layout2.setVisibility(View.GONE);
+                        LinearLayout layout3 = (LinearLayout) findViewById(R.id.row3);
+                        layout3.setVisibility(View.GONE);
                     }
                 });
             }
